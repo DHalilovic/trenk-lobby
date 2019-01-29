@@ -1,4 +1,4 @@
-# trenk-lobby
+# Trenk Lobby Server
 Matchmaking server for trenk players. Allows for retrieving/storing host ips via a set of strings.
 
 ## Getting Started
