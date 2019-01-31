@@ -4,6 +4,7 @@ import asyncio
 import random
 
 # Server URL: http://127.0.0.1:8080/
+defPort = 6666
 
 hosts = set([])
 routes = web.RouteTableDef()
@@ -14,7 +15,7 @@ async def handleGet(request):
 	ip = ''
 	if len(hosts) > 0: # If ip present
 		ip = random.sample(hosts, 1)[0] # Get random ip
-		hosts.pop(ip) # Remove ip from set
+		hosts.remove(ip) # Remove ip from set
 	else: # Otherwise add client's own ip to list
 		hosts.add(request.remote)
 	print(hosts)
@@ -29,4 +30,4 @@ async def handleDelete(request):
 
 app = web.Application()
 app.add_routes(routes)
-web.run_app(app)
+web.run_app(app, port = defPort)
