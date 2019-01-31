@@ -9,7 +9,7 @@ defPort = 6666
 hosts = set([])
 routes = web.RouteTableDef()
 
-@routes.get('/hosted')
+@routes.get('/trenk/hosts')
 async def handleGet(request):
 	print('received')
 	ip = ''
@@ -22,7 +22,7 @@ async def handleGet(request):
 	# Client knows they are hosting if they receive no ip
 	return web.Response(text = ip) 
 
-@routes.delete('/hosted')
+@routes.delete('/trenk/hosts')
 async def handleDelete(request):
 	ip = request.remote
 	hosts.remove(ip)
